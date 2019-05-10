@@ -16,14 +16,6 @@
       $('.modal-title').text('Tambahkan Data');
   }
 
-  function add() {
-      save_method = 'add';
-      $('#form-data')[0].reset();
-
-      $('#modal-data').modal('show');
-      $('.modal-title').text('Tambahkan Data');
-  }
-
   function save() {
       var url;
       if (($('#artikelx').length)) {
@@ -35,6 +27,7 @@
       } else {
           url = urlupdate;
       }
+      $(".btn-fn").prop('disabled', true);
       $.ajax({
           url: url,
           type: "POST",
@@ -45,29 +38,33 @@
                   $('#modal-data').modal('hide');
                   refresh();
                   save_method == 'add' ? showNotif('Sukses', 'Data Berhasil Ditambahkan', 'success') : showNotif('Sukses', 'Data Berhasil Diubah', 'success')
+                  $(".btn-fn").prop('disabled', false);
               } else if (data.sukses == 'fail') {
                   $('#modal-data').modal('hide');
                   refresh();
-                  showNotif('Sukses', 'Tidak Ada Perubahan', 'success')
+                  showNotif('Sukses', 'Tidak Ada Perubahan', 'success');
+                  $(".btn-fn").prop('disabled', false);
               }
-
-
           },
           error: function(jqXHR, textStatus, errorThrown) {
               alert('Error on process');
+              $(".btn-fn").prop('disabled', false);
           }
       });
   }
 
   function savefile() {
       var url;
-      artikel = CKEDITOR.instances['artikelx'].getData();
-      $('#artikel').val(artikel);
+      if ($('#artikelx').length) {
+        artikel = CKEDITOR.instances['artikelx'].getData();
+        $('#artikel').val(artikel);
+      }
       if (save_method == 'add') {
           url = urlsavefile;
       } else {
           url = urlupdatefile;
       }
+      $(".btn-fn").prop('disabled', true);
       var formData = new FormData($('#form-data')[0]);
       $.ajax({
           url: url,
@@ -82,16 +79,19 @@
               if (data.sukses == 'success') {
                   $('#modal-data').modal('hide');
                   refresh();
-                  save_method == 'add' ? showNotif('Sukses', 'Data Berhasil Ditambahkan', 'success') : showNotif('Sukses', 'Data Berhasil Diubah', 'success')
+                  save_method == 'add' ? showNotif('Sukses', 'Data Berhasil Ditambahkan', 'success') : showNotif('Sukses', 'Data Berhasil Diubah', 'success');
+                  $(".btn-fn").prop('disabled', false);
               } else if (data.sukses == 'fail') {
                   $('#modal-data').modal('hide');
                   refresh();
-                  showNotif('Sukses', 'Tidak Ada Perubahan', 'success')
+                  showNotif('Sukses', 'Tidak Ada Perubahan', 'success');
+                  $(".btn-fn").prop('disabled', false);
               }
 
           },
           error: function(jqXHR, textStatus, errorThrown) {
               alert('Error on process');
+              $(".btn-fn").prop('disabled', false);
           }
       });
   }
@@ -161,12 +161,10 @@
               id: id,
           },
           success: function(data) {
-              // $('#modal-konfirmasi').modal('hide');
               if (data.sukses == 'success') {
                   refresh();
                   showNotif('Sukses', 'Data Berhasil Diubah', 'success')
               } else if (data.sukses == 'fail') {
-                  // $('#modal-data').modal('hide');
                   refresh();
                   showNotif('Gagal', 'Data Gagal Diubah', 'danger')
               }

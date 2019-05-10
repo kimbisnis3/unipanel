@@ -1,11 +1,8 @@
 <?php $this->load->view('_partials/head') ?>
 <?php $this->load->view('_partials/sidebar') ?>
 <?php $this->load->view('_partials/topbar') ?>
-<!-- Begin Page Content -->
 <div class="container-fluid">
-  <!-- Page Heading -->
   <h5 class="h3 mb-2 text-gray-800"><?php echo $title ?></h5>
-  <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <div class="row">
@@ -39,9 +36,7 @@
     </div>
   </div>
 </div>
-<!-- /.container-fluid -->
 </div>
-<!-- End of Main Content -->
 <div class="modal fade" id="modal-data" role="dialog" data-backdrop="static">
 <div class="modal-dialog modal-lg">
   <!-- Modal content-->
@@ -87,8 +82,8 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-warning btn-flat" data-dismiss="modal">Batal</button>
-      <button type="button" id="btnSave" onclick="savefile()" class="btn btn-primary btn-flat">Simpan</button>
+      <button type="button" class="btn btn-warning btn-fn" data-dismiss="modal">Batal</button>
+      <button type="button" class="btn btn-primary btn-fn" onclick="savefile()">Simpan</button>
     </div>
   </div>
 </div>
@@ -116,19 +111,13 @@
               "type": "POST",
               "data": {}
           },
-        "columns": [{
-                    "data": "no"
-                }, {
-                    "data": "judul"
-                }, {
-                    "data": "artikel"
-                }, {
-                    "data": "image"
-                }, {
-                    "data": "ket"
-                }, {
-                    "data": "action"
-                }
+        "columns": [
+          {"data": "no"}, 
+          {"data": "judul" }, 
+          {"data": "artikel"}, 
+          {"data": "image" }, 
+          {"data": "ket"}, 
+          {"data": "action"}
           ]
       });
   });
@@ -149,7 +138,6 @@
               $('[name="ket"]').val(data.ket);
               $('[name="path"]').val('.' + data.image);
               CKEDITOR.instances.artikelx.setData(data.artikel);
-
               $('#modal-data').modal('show');
               $('.modal-title').text('Edit Data');
 

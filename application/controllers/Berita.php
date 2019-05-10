@@ -26,11 +26,7 @@ class Berita extends CI_Controller {
         $list       = array();
         $no         = 1;
         foreach ($result as $r) {
-            if ($r->image == NULL ){
-                $gambar = "(Noimage)";
-            } else {
-                $gambar = "<img style='max-width : 30px;' src='.".$r->image."'>";
-            }
+            ($r->image == NULL ) ? $gambar = "(Noimage)" : $gambar = "<img style='max-width : 30px;' src='.".$r->image."'>";
             $row    = array(
                         "no"        => $no,
                         "kode"      => $r->kode,

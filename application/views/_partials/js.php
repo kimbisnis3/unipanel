@@ -66,14 +66,15 @@
   <script src="<?php echo base_url() ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/vendor/lte/notify/bootstrap-notify.js"></script>
-<script src="<?php echo base_url()?>assets/vendor/lte/ajaxupload/jquery.ajaxfileupload.js"></script>
-<script src="<?php echo base_url()?>assets/vendor/lte/select2/select2.full.min.js"></script>
-<script src="<?php echo base_url()?>assets/vendor/lte/datepicker/bootstrap-datepicker.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/lte/ckeditor/ckeditor.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/lte/pace/pace.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/lte/datepicker/bootstrap-datepicker.js"></script>
-<script type="text/javascript">
+  <script src="<?php echo base_url(); ?>assets/vendor/lte/notify/bootstrap-notify.js"></script>
+  <script src="<?php echo base_url()?>assets/vendor/lte/ajaxupload/jquery.ajaxfileupload.js"></script>
+  <script src="<?php echo base_url()?>assets/vendor/lte/select2/select2.full.min.js"></script>
+  <script src="<?php echo base_url()?>assets/vendor/lte/datepicker/bootstrap-datepicker.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/lte/ckeditor/ckeditor.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/lte/pace/pace.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/lte/datepicker/bootstrap-datepicker.js"></script>
+
+  <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose: true,
 		format: 'd M yyyy',
